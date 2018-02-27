@@ -5,7 +5,7 @@
 <StackLayout orientation="vertical">
   <Label text="Name" [ngClass]="{invalid: (submitted && name_invalid)}"></Label>
   <TextField hint="Write your name" [(ngModel)]="name" [ngClass]="{invalid: (submitted && name_invalid)}"></TextField>
-  <Label text="Age" [ngClass]="{invalid: (submitted && age_invalid)}"></Label>
-  <TextField hint="Input age" keyboardType="number" [(ngModel)]="age" [ngClass]="{invalid: (submitted && age_invalid)}"></TextField>
+  <Label text="Pick the test frequency from below" [ngClass]="{invalid: (submitted && age_invalid)}"></Label>
+  <ListPicker [items]="freqs" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)"></ListPicker>
   <Button (tap)="startEvaluation()" text="Start" class="submit-button"></Button>
 </StackLayout>

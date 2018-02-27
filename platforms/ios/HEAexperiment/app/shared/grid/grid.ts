@@ -1,8 +1,8 @@
 export enum GridDirection {
-  Up,
-  Down,
-  Right,
-  Left
+  Up = "up",
+  Down = "down",
+  Right = "right",
+  Left = "left"
 }
 
 export enum TrialAnswer {
@@ -127,6 +127,8 @@ export class GridTracker {
 
     let new_yidx = this.status.yidx;
     let new_xidx = this.status.xidx;
+    this.status.reversal = false;
+    
     if (this.status.adjust_difficulty != 0) {
       // determine next grid direction
       if (this.status.adjust_difficulty < 0) { // go down = increase difficulty
@@ -161,6 +163,7 @@ export class GridTracker {
 
       // check if we reached the grid boundaries
       if (new_yidx > this.grid.getMaxIndices()[1]) {
+        console.log('Grid: y max reached');
         if (this.status.direction == GridDirection.Up) {
           // max y value reached, change direction to right, i.e. keep
           // decreasing difficulty
@@ -176,6 +179,7 @@ export class GridTracker {
           throw new Error('Grid: unexpected direction when reaching upper y boundary.');
         }
       } else if (new_yidx < 0) {
+        console.log('Grid: y min reached');
         if (this.status.direction == GridDirection.Down) {
           // min y value reached, change direction to left, i.e. keep
           // increasing difficulty
@@ -190,11 +194,12 @@ export class GridTracker {
         } else {
           throw new Error('Grid: unexpected direction when reaching lower y boundary.');
         }
-      } else if (new_xidx > this.grid.getMaxIndices()[1]) {
+      } else if (new_xidx > this.grid.getMaxIndices()[0]) {
+        console.log('Grid: x max reached');
         if (this.status.direction == GridDirection.Right) {
           // max x value reached, change direction to up, i.e. keep
           // decreasing difficulty
-          new_xidx = this.grid.getMaxIndices()[1];
+          new_xidx = this.grid.getMaxIndices()[0];
           this.status.direction = GridDirection.Up;
           this.status.reversal = true;
           this.reversal_counter = this.reversal_counter + 1;
@@ -206,6 +211,7 @@ export class GridTracker {
           throw new Error('Grid: unexpected direction when reaching upper x boundary.');
         }
       } else if (new_xidx < 0) {
+        console.log('Grid: x min reached');
         if (this.status.direction == GridDirection.Left) {
           // min x value reached, change direction to down, i.e. keep
           // increasing difficulty

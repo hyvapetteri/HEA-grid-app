@@ -1,7 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.environment = {
-    subjectFile: 'participants.txt',
-    experimentFilePrefix: 'exp-log-'
-};
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW52aXJvbm1lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJlbnZpcm9ubWVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFhLFFBQUEsV0FBVyxHQUFHO0lBQ3pCLFdBQVcsRUFBRSxrQkFBa0I7SUFDL0Isb0JBQW9CLEVBQUUsVUFBVTtDQUNqQyxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNvbnN0IGVudmlyb25tZW50ID0ge1xuICBzdWJqZWN0RmlsZTogJ3BhcnRpY2lwYW50cy50eHQnLFxuICBleHBlcmltZW50RmlsZVByZWZpeDogJ2V4cC1sb2ctJ1xufVxuIl19

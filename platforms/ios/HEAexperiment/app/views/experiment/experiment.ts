@@ -2,7 +2,7 @@ import { Component, NgZone } from '@angular/core';
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import * as fs from "tns-core-modules/file-system";
 
-import { UserProvider } from '../../shared/user/user';
+import { SessionProvider } from '../../shared/session/session';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 import { TNSPlayer } from 'nativescript-audio';
@@ -12,6 +12,10 @@ import { sound_config } from './experiment-config';
 import { ParamGrid, GridTracker, TrialAnswer, GridTrackingStatus } from '../../shared/grid/grid';
 
 declare var NSURL;
+
+function db2a(db:number) {
+  return Math.pow(10, db/20);
+}
 
 @Component({
   moduleId: module.id,
@@ -47,7 +51,7 @@ export class ExperimentPage {
   private experimentLogText: Array<string> = [];
   private grid: GridTracker;
 
-  constructor(private userProvider: UserProvider,
+  constructor(private sessionProvider: SessionProvider,
               private routerExtensions: RouterExtensions,
               private _ngZone: NgZone) {
 
@@ -85,7 +89,8 @@ export class ExperimentPage {
     console.log('Players initialized: ' + this.players.length);
     this.ISI_ms = 200;
 
-    this.volume = 0.7;
+    this.volume = db2a(40)*sessionProvider.threshold;
+    console.log('Volume: ' + this.volume);
 
     let appPath = fs.knownFolders.currentApp();
     this.audioPath = fs.path.join(appPath.path, 'audio');
@@ -108,7 +113,7 @@ export class ExperimentPage {
       this.enableAnswer = false;
       this.answered = false;
 
-      this.uid = userProvider.username;
+      this.uid = sessionProvider.username;
 
       let docsPath = fs.knownFolders.documents().path;
       let now = new Date();
@@ -210,6 +215,9 @@ export class ExperimentPage {
 
   playTrial() {
     this.name = 'playa';
+    for (let i = 0; i < this.n_alternatives; i++) {
+      this.players[i].volume = this.volume;
+    }
     return this.startSound(0).then(
       () => {
         this.trialNumber += 1;
@@ -231,7 +239,6 @@ export class ExperimentPage {
       return new Promise((resolve, reject) => reject('playing'));
     }
     this.highlightedButton = player_idx;
-    this.players[player_idx].volume = this.volume;
     return this.players[player_idx].play();
   }
 
@@ -305,9 +312,6 @@ export class ExperimentPage {
       message: 'The experiment is now finished, thank you for participating!',
       okButtonText: 'OK'
     }).then(() => {
-      this.userProvider.username = '';
-      this.userProvider.age = null;
-
       return this.routerExtensions.navigate(['/start'], {clearHistory: true});
     }).catch(err => {
       this.showError(err);
@@ -322,9 +326,6 @@ export class ExperimentPage {
       cancelButtonText: 'Stay'
     }).then(ans => {
       if (ans) {
-        this.userProvider.username = '';
-        this.userProvider.age = null;
-
         return this.writeLog('Aborted trial.\n' + JSON.stringify(this.grid.getHistory())).then(() => {
           return this.routerExtensions.navigate(['/start'], {clearHistory: true});
         }).catch(err => this.showError(err));

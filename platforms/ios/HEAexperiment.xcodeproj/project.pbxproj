@@ -6,14 +6,14 @@
 	objectVersion = 46;
 	objects = {
 /* Begin PBXBuildFile section */
-		736DB4D2F71C48279D7B1166 /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A17A537A3DB74461BAE47E7B /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		78E87CE3DD8F49FE9322B83B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C24C0040C9F949ADBB101BCF /* LaunchScreen.storyboard */; };
-		83BF68A090FA408983BBDFD1 /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9CCACE63D27C47CA9B17834C /* build.xcconfig */; };
 		858B842D18CA22B800AB12DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 858B833A18CA111C00AB12DE /* InfoPlist.strings */; };
-		906345058CEF46BAA73C5896 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49589B882BEF4D54830B5217 /* Assets.xcassets */; };
 		CD45EE7C18DC2D5800FB50C0 /* app in Resources */ = {isa = PBXBuildFile; fileRef = CD45EE7A18DC2D5800FB50C0 /* app */; };
 		CD62955D1BB2678900AE3A93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD62955C1BB2678900AE3A93 /* main.m */; };
-		F1A0B46B5BC34412B2419CDE /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17A537A3DB74461BAE47E7B /* TNSWidgets.framework */; };
+		D3001C6A00234614A7D16520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8D15E25C0A4855935CF297 /* Assets.xcassets */; };
+		B847C72561524D2E8A5898EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71FB7A3E16434BE18C103E60 /* LaunchScreen.storyboard */; };
+		DB66D4C7A0384FDBB05F7F7B /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4D63334D69CB48269A412A57 /* build.xcconfig */; };
+		D157D1FC4C6B43558F42BBC2 /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59C180CB6A64F3FB396940C /* TNSWidgets.framework */; };
+		AA8AB391F81748888C8B8877 /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F59C180CB6A64F3FB396940C /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				736DB4D2F71C48279D7B1166 /* TNSWidgets.framework in Embed Frameworks */,
+				AA8AB391F81748888C8B8877 /* TNSWidgets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,20 +31,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		49589B882BEF4D54830B5217 /* Assets.xcassets */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = Assets.xcassets; path = HEAexperiment/Resources/Assets.xcassets; sourceTree = "<group>"; };
 		858B832E18CA111C00AB12DE /* HEAexperiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HEAexperiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		858B833918CA111C00AB12DE /* HEAexperiment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HEAexperiment-Info.plist"; sourceTree = "<group>"; };
 		858B833B18CA111C00AB12DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		858B833F18CA111C00AB12DE /* HEAexperiment-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HEAexperiment-Prefix.pch"; sourceTree = "<group>"; };
-		858B843318CA22B800AB12DE /* HEA experiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HEA experiment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CCACE63D27C47CA9B17834C /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = build.xcconfig; path = HEAexperiment/Resources/build.xcconfig; sourceTree = "<group>"; };
-		A17A537A3DB74461BAE47E7B /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework"; sourceTree = "<group>"; };
-		C24C0040C9F949ADBB101BCF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = LaunchScreen.storyboard; path = HEAexperiment/Resources/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		858B843318CA22B800AB12DE /* HEAexperiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HEAexperiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD45EE7A18DC2D5800FB50C0 /* app */ = {isa = PBXFileReference; lastKnownFileType = folder; path = app; sourceTree = "<group>"; };
 		CD62955C1BB2678900AE3A93 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = internal/main.m; sourceTree = SOURCE_ROOT; };
 		CDD59A261BB43B5D00EC2671 /* build-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "build-debug.xcconfig"; sourceTree = "<group>"; };
 		CDD59A271BB43B5D00EC2671 /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "build-release.xcconfig"; sourceTree = "<group>"; };
 		CDF4743E1BA4855C0087EA85 /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = build.xcconfig; sourceTree = "<group>"; };
+		DA8D15E25C0A4855935CF297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = Assets.xcassets; path = "HEAexperiment/Resources/Assets.xcassets"; sourceTree = "<group>"; fileEncoding = 4; };
+		71FB7A3E16434BE18C103E60 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = LaunchScreen.storyboard; path = "HEAexperiment/Resources/LaunchScreen.storyboard"; sourceTree = "<group>"; fileEncoding = 4; };
+		4D63334D69CB48269A412A57 /* build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = build.xcconfig; path = "HEAexperiment/Resources/build.xcconfig"; sourceTree = "<group>"; fileEncoding = 4; };
+		F59C180CB6A64F3FB396940C /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1A0B46B5BC34412B2419CDE /* TNSWidgets.framework in Frameworks */,
+				D157D1FC4C6B43558F42BBC2 /* TNSWidgets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				858B832E18CA111C00AB12DE /* HEAexperiment.app */,
-				858B843318CA22B800AB12DE /* HEA experiment.app */,
+				858B843318CA22B800AB12DE /* HEAexperiment.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,7 +81,7 @@
 		858B833018CA111C00AB12DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A17A537A3DB74461BAE47E7B /* TNSWidgets.framework */,
+				F59C180CB6A64F3FB396940C /* TNSWidgets.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,9 +112,9 @@
 		E070579D1B39A9D000214BF1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				49589B882BEF4D54830B5217 /* Assets.xcassets */,
-				C24C0040C9F949ADBB101BCF /* LaunchScreen.storyboard */,
-				9CCACE63D27C47CA9B17834C /* build.xcconfig */,
+				DA8D15E25C0A4855935CF297 /* Assets.xcassets */,
+				71FB7A3E16434BE18C103E60 /* LaunchScreen.storyboard */,
+				4D63334D69CB48269A412A57 /* build.xcconfig */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -140,7 +140,7 @@
 			);
 			name = HEAexperiment;
 			productName = JDBridgeApp;
-			productReference = 858B843318CA22B800AB12DE /* HEA experiment.app */;
+			productReference = 858B843318CA22B800AB12DE /* HEAexperiment.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -152,12 +152,6 @@
 				CLASSPREFIX = TNS;
 				LastUpgradeCheck = 500;
 				ORGANIZATIONNAME = Telerik;
-				TargetAttributes = {
-					858B83EF18CA22B800AB12DE = {
-						DevelopmentTeam = 4SXDVB82MX;
-						ProvisioningStyle = Automatic;
-					};
-				};
 			};
 			buildConfigurationList = 858B832918CA111C00AB12DE /* Build configuration list for PBXProject "HEAexperiment" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -183,9 +177,9 @@
 			files = (
 				CD45EE7C18DC2D5800FB50C0 /* app in Resources */,
 				858B842D18CA22B800AB12DE /* InfoPlist.strings in Resources */,
-				906345058CEF46BAA73C5896 /* Assets.xcassets in Resources */,
-				78E87CE3DD8F49FE9322B83B /* LaunchScreen.storyboard in Resources */,
-				83BF68A090FA408983BBDFD1 /* build.xcconfig in Resources */,
+				D3001C6A00234614A7D16520 /* Assets.xcassets in Resources */,
+				B847C72561524D2E8A5898EA /* LaunchScreen.storyboard in Resources */,
+				DB66D4C7A0384FDBB05F7F7B /* build.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,14 +335,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_MODULES_AUTOLINK = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4SXDVB82MX;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HEAexperiment/HEAexperiment-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -357,10 +344,13 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/HEAexperiment/HEAexperiment-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "HEA experiment";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_NAME = HEAexperiment;
 				VALID_ARCHS = "armv7 arm64";
 				WRAPPER_EXTENSION = app;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios\"",
+				);
 			};
 			name = Debug;
 		};
@@ -371,22 +361,18 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_MODULES_AUTOLINK = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4SXDVB82MX;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HEAexperiment/HEAexperiment-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/HEAexperiment/HEAexperiment-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "HEA experiment";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_NAME = HEAexperiment;
 				VALID_ARCHS = "armv7 arm64";
 				WRAPPER_EXTENSION = app;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios\"",
+				);
 			};
 			name = Release;
 		};

@@ -2,7 +2,8 @@
 </ActionBar>
 
 <StackLayout orientation="vertical" width="70%">
-  <Label class="message" [text]="instructionText" height="70"></Label>
-  <Button (touch)="onButtonTouch($event)" class="answerButton" [isEnabled]="enableAnswer" [text]="answerButtonText"></Button>
-  <Button class="playButton" [text]="playButtonText" (touch)="play()" [isEnabled]="enablePlay"></Button>
+  <TextView editable="false" class="message" [text]="instructionText" height="100" margin="10"></TextView>
+  <Button (touch)="onButtonTouch($event)" class="answerButton" [class.pressed]="answerButtonPressed" [isEnabled]="enableAnswer" [text]="answerButtonText" margin="10"></Button>
+  <Button class="playButton" [text]="playButtonText" (tap)="play()" [isEnabled]="enablePlay" margin="10"></Button>
+  <Progress [value]="turns.length" maxValue="10"></Progress>
 </StackLayout>

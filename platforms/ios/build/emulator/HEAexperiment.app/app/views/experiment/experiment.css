@@ -30,6 +30,12 @@ GridLayout {
   font-weight: bold;
 }
 
+.highlight {
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgb(255,149,0);
+}
+
 .playButton {
   background-color: white;
   border-style: solid;

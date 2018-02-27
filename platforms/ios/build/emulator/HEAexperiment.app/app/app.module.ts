@@ -4,7 +4,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 
-import { UserProvider } from "./shared/user/user";
+import { SessionProvider } from "./shared/session/session";
 
 import { StartPage } from "./views/start/start";
 import { ExperimentPage } from "./views/experiment/experiment";
@@ -30,7 +30,7 @@ import { ExperimentPage } from "./views/experiment/experiment";
         ExperimentPage
     ],
     providers: [
-        UserProvider
+        SessionProvider
     ],
     schemas: [
         NO_ERRORS_SCHEMA

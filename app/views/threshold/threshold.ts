@@ -5,7 +5,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { TouchGestureEventData } from "ui/gestures";
 import { TNSPlayer } from 'nativescript-audio';
 
-import { UserProvider } from '../../shared/user/user';
+import { SessionProvider } from '../../shared/session/session';
 
 declare var NSURL;
 
@@ -23,6 +23,7 @@ export class ThresholdPage {
   private instructionText: string;
   private answerButtonText: string;
   private playButtonText: string;
+  private answerButtonPressed: boolean;
 
   private enablePlay: boolean;
   private enableAnswer: boolean;
@@ -37,12 +38,14 @@ export class ThresholdPage {
 
   private volumeUpdateTimerId: number;
 
-  constructor(private userProvider: UserProvider,
+  constructor(private sessionProvider: SessionProvider,
               private routerExtensions: RouterExtensions) {
 
     this.enablePlay = false;
     this.enableAnswer = false;
+    this.answerButtonPressed = false;
 
+    this.turns = [];
     this.max_turns = 10;
 
     this.player = new TNSPlayer();
@@ -60,15 +63,20 @@ export class ThresholdPage {
 
     this.reset();
     this.instructionText = 'Press play to start';
+    this.answerButtonText = 'Push'
   }
 
   onButtonTouch(args: TouchGestureEventData) {
     if (args.action == 'down') {
+      this.answerButtonPressed = true;
       this.turns.push(this.volume);
       this.direction = -1;
+      this.answerButtonText = 'Hold';
     } else if (args.action == 'up') {
+      this.answerButtonPressed = false;
       this.turns.push(this.volume);
       this.direction = 1;
+      this.answerButtonText = 'Push';
     }
     if (this.turns.length >= this.max_turns) {
       this.player.pause().then(() => {
@@ -107,14 +115,21 @@ export class ThresholdPage {
     this.enableAnswer = false;
     this.volume = db2a(-40);
     this.player.volume = this.volume;
+    this.turns = [];
   }
 
   finish() {
     let avg_threshold = 0;
-    for (let i = 0; i < this.turns.length; i++) {
+    let n_last_turns = 6;
+    for (let i = this.turns.length - 1; i >= this.turns.length - n_last_turns; i--) {
       avg_threshold = avg_threshold + this.turns[i];
     }
-    avg_threshold = avg_threshold / this.turns.length;
+    console.log('sum: ' + avg_threshold + ', n: ' + n_last_turns);
+    avg_threshold = avg_threshold / n_last_turns;
+    this.sessionProvider.threshold = avg_threshold;
+    console.log('Turns: ' + JSON.stringify(this.turns));
+    console.log('Threshold: ' + avg_threshold);
+    this.routerExtensions.navigate(["/experiment"], {clearHistory: true});
   }
 
   showError(err) {

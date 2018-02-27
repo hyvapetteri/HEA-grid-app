@@ -1,27 +1,31 @@
 {
-  "_from": "nativescript-audio",
+  "_args": [
+    [
+      "nativescript-audio@4.0.3",
+      "/Users/petteri/Documents/nativescript/HEAexperiment"
+    ]
+  ],
+  "_from": "nativescript-audio@4.0.3",
   "_id": "nativescript-audio@4.0.3",
   "_inBundle": false,
   "_integrity": "sha1-vaZIs2YyEmpTR6Cm3WajSaiGB/8=",
   "_location": "/nativescript-audio",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "nativescript-audio",
+    "raw": "nativescript-audio@4.0.3",
     "name": "nativescript-audio",
     "escapedName": "nativescript-audio",
-    "rawSpec": "",
+    "rawSpec": "4.0.3",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "4.0.3"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/nativescript-audio/-/nativescript-audio-4.0.3.tgz",
-  "_shasum": "bda648b36632126a5347a0a6dd66a349a88607ff",
-  "_spec": "nativescript-audio",
+  "_spec": "4.0.3",
   "_where": "/Users/petteri/Documents/nativescript/HEAexperiment",
   "author": {
     "name": "Brad Martin",
@@ -30,7 +34,6 @@
   "bugs": {
     "url": "https://github.com/bradmartin/nativescript-audio/issues"
   },
-  "bundleDependencies": false,
   "contributors": [
     {
       "name": "Nathan Walker",
@@ -90,7 +93,6 @@
       "url": "https://github.com/ChrisFlannagan"
     }
   ],
-  "deprecated": false,
   "description": "NativeScript plugin to record and play audio.",
   "devDependencies": {
     "husky": "^0.13.4",

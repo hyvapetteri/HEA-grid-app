@@ -4,10 +4,11 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 
-import { UserProvider } from "./shared/user/user";
+import { SessionProvider } from "./shared/session/session";
 
 import { StartPage } from "./views/start/start";
 import { ExperimentPage } from "./views/experiment/experiment";
+import { ThresholdPage } from "./views/threshold/threshold";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -27,10 +28,11 @@ import { ExperimentPage } from "./views/experiment/experiment";
     declarations: [
         AppComponent,
         StartPage,
-        ExperimentPage
+        ExperimentPage,
+        ThresholdPage
     ],
     providers: [
-        UserProvider
+        SessionProvider
     ],
     schemas: [
         NO_ERRORS_SCHEMA

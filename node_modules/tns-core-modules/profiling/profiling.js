@@ -3,6 +3,13 @@ function uptime() {
     return global.android ? org.nativescript.Process.getUpTime() : global.__tns_uptime();
 }
 exports.uptime = uptime;
+function log(message) {
+    if (global.__nslog) {
+        global.__nslog("CONSOLE LOG: " + message);
+    }
+    console.log(message);
+}
+exports.log = log;
 var timers = {};
 var anyGlobal = global;
 var profileNames = [];
@@ -100,6 +107,13 @@ function timelineProfileFunctionFactory(fn, name, type) {
         }
     };
 }
+var Level;
+(function (Level) {
+    Level[Level["none"] = 0] = "none";
+    Level[Level["lifecycle"] = 1] = "lifecycle";
+    Level[Level["timeline"] = 2] = "timeline";
+})(Level = exports.Level || (exports.Level = {}));
+var tracingLevel = Level.none;
 var profileFunctionFactory;
 function enable(mode) {
     if (mode === void 0) { mode = "counters"; }
@@ -107,6 +121,10 @@ function enable(mode) {
         counters: countersProfileFunctionFactory,
         timeline: timelineProfileFunctionFactory
     }[mode];
+    tracingLevel = {
+        lifecycle: Level.lifecycle,
+        timeline: Level.timeline,
+    }[mode] || Level.none;
 }
 exports.enable = enable;
 try {
@@ -244,4 +262,12 @@ function stopCPUProfile(name) {
     }
 }
 exports.stopCPUProfile = stopCPUProfile;
+function level() {
+    return tracingLevel;
+}
+exports.level = level;
+function trace(message, start, end) {
+    log("Timeline: Modules: " + message + "  (" + start + "ms. - " + end + "ms.)");
+}
+exports.trace = trace;
 //# sourceMappingURL=profiling.js.map

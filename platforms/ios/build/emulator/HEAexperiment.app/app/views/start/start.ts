@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import * as dialogs from "tns-core-modules/ui/dialogs";
+import { ListPicker } from "ui/list-picker";
 import * as fs from "tns-core-modules/file-system";
 import { RouterExtensions } from "nativescript-angular/router";
 
-import { UserProvider } from '../../shared/user/user';
+import { SessionProvider } from '../../shared/session/session';
 
 @Component({
   moduleId: module.id,
@@ -12,52 +13,49 @@ import { UserProvider } from '../../shared/user/user';
   styleUrls: ['./start.css']
 })
 export class StartPage {
-  private age: string;
   private name: string;
+  private freqs: number[];
+  private pickedFreq: number;
 
   private submitted: boolean;
-  private age_invalid: boolean;
   private name_invalid: boolean;
 
-  constructor(private userProvider: UserProvider,
+  constructor(private sessionProvider: SessionProvider,
               private routerExtensions: RouterExtensions) {
 
     this.submitted = false;
-    this.age_invalid = true;
     this.name_invalid = true;
+
+    this.freqs = [1000, 2000, 4000];
+    this.pickedFreq = 1000;
   }
 
   startEvaluation() {
     this.submitted = true;
-    let age_number = Number.parseInt(this.age);
-    console.log('Age: ' + this.age + ' is integer: ' + Number.isInteger(age_number) + ' type of: ' + typeof(age_number));
-    if (!this.age || !Number.isInteger(age_number)) {
-      this.age_invalid = true;
-    } else {
-      this.age_invalid = false;
-    }
+
     if (!this.name) {
       this.name_invalid = true;
     } else {
       this.name_invalid = false;
     }
 
-    if (this.age_invalid || this.name_invalid) {
+    if (this.name_invalid) {
       return
     }
 
-    this.userProvider.age = age_number;
-    this.userProvider.username = this.name;
+    this.sessionProvider.username = this.name;
+    this.sessionProvider.testFrequency = this.pickedFreq;
 
     let docsFolder = fs.knownFolders.documents();
+    console.log(docsFolder.path);
     let fileHandle = docsFolder.getFile('participants.txt');
     fileHandle.readText().then((subjects: string) => {
-      let fullList = subjects.concat('subj: ' + this.name + ', age: ' + this.age + '\n');
+      let fullList = subjects.concat('subj: ' + this.name + '\n');
       return fileHandle.writeText(fullList);
     }).then(() => {
       return dialogs.alert({
         title: 'Thank you!',
-        message: 'Your participant ID is ' + this.name + '.',
+        message: 'Your participant ID is ' + this.name,
         okButtonText: 'OK'
       });
     }).then(() => {
@@ -65,6 +63,11 @@ export class StartPage {
     }).catch(err => {
       console.log(err);
     });
+  }
+
+  selectedIndexChanged(args) {
+    let picker = <ListPicker>args.object;
+    this.pickedFreq = this.freqs[picker.selectedIndex];
   }
 
   showActionSheet() {
