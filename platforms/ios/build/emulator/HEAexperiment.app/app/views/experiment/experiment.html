@@ -1,0 +1,10 @@
+<ActionBar title="Experiment, trial ({{trialNumber}}/{{sounds.length}})">
+  <ActionItem (tap)="abortExperiment()" ios.systemIcon="14" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout columns="*,*" rows="*,*,*" width="70%" verticalAlignment="top">
+  <Label class="message" [ngClass]="{correct: (answered && isCorrect), wrong: (answered && !isCorrect)}" [text]="instructionText" row="0" col="0" colSpan="2"></Label>
+  <Button (tap)="evaluateAnswer('A')" class="answerButton" [isEnabled]="enableAnswer" text="A" row="1" col="0"></Button>
+  <Button (tap)="evaluateAnswer('B')" class="answerButton" [isEnabled]="enableAnswer" text="B" row="1" col="1"></Button>
+  <Button class="playButton" [text]="playButtonText" (tap)="startSound()" [isEnabled]="enablePlay" row="2" col="0" colSpan="2"></Button>
+</GridLayout>

@@ -1,0 +1,8 @@
+<ActionBar title="Threshold">
+</ActionBar>
+
+<StackLayout orientation="vertical" width="70%">
+  <Label class="message" [text]="instructionText" height="70"></Label>
+  <Button (touch)="onButtonTouch($event)" class="answerButton" [isEnabled]="enableAnswer" [text]="answerButtonText"></Button>
+  <Button class="playButton" [text]="playButtonText" (touch)="play()" [isEnabled]="enablePlay"></Button>
+</StackLayout>
